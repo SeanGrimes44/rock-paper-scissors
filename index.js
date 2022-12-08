@@ -1,3 +1,4 @@
+game();
 
 function getComputerChoice () {
     let number = Math.floor(Math.random() * 3);
@@ -15,28 +16,41 @@ function getComputerChoice () {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        return "Tie game!";
+        console.log("Tie game!");
+        return 0;
     }
     else if (playerSelection === "rock" && computerSelection == "paper") {
-        return "You lose! Paper beats Rock";
+        console.log("You lose! Paper beats Rock");
+        return -1;
     }
     else if (playerSelection === "rock" && computerSelection == "scissors") {
-        return "You win! Rock beats Scissors";
+        console.log("You win! Rock beats Scissors");
+        return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "rock") {
-        return "You Win! Paper beats Rock";
+        console.log("You Win! Paper beats Rock");
+        return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "scissors") {
-        return "You lose! Scissors beats Paper";
+        console.log("You lose! Scissors beats Paper");
+        return -1;
     }
     else if (playerSelection === "scissors" && computerSelection == "paper") {
-        return "You Win! Scissors beats Paper";
+        console.log("You Win! Scissors beats Paper");
+        return 1;
     }
     else if (playerSelection === "scissors" && computerSelection == "rock") {
-        return "You lose! Rock beats Scissors";
+        console.log("You lose! Rock beats Scissors");
+        return -1;
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = "RoCk";
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    }
+}
