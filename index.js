@@ -49,7 +49,12 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
-        const playerSelection = "RoCk";
+        let playerSelection = prompt("select rock, paper, or scissors");
+        while (playerSelection.toLowerCase() !== "rock" && 
+        playerSelection.toLowerCase() !== "paper" && 
+        playerSelection.toLowerCase() !== "scissors") {
+            playerSelection = prompt ("Invalid entry. Please select a rock, paper, or scissors.")
+        }
         const computerSelection = getComputerChoice();
         let score = playRound(playerSelection, computerSelection);
         if (score === 1) {
