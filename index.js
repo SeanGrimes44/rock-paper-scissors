@@ -16,7 +16,7 @@ function getComputerChoice () {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        console.log("Tie game!");
+        console.log("Tie round!");
         return 0;
     }
     else if (playerSelection === "rock" && computerSelection == "paper") {
@@ -51,6 +51,21 @@ function game() {
     for (let i = 0; i < 5; i++) {
         const playerSelection = "RoCk";
         const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
+        let score = playRound(playerSelection, computerSelection);
+        if (score === 1) {
+            playerScore++;
+        }
+        else if (score === -1) {
+            computerScore++;
+        }
+    }
+    if (playerScore > computerScore) {
+        console.log("You win the game! Congratulations!");
+    }
+    else if (playerScore < computerScore) {
+        console.log("You lose the game!");
+    }
+    else {
+        console.log("Tie game!");
     }
 }
