@@ -8,6 +8,7 @@ const scoreDisplay = document.querySelector("#score-display");
 let playerScore = 0;
 let computerScore = 0;
 
+
 rock.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
 });
@@ -38,43 +39,50 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
         display.textContent = "Tie round!";
-        return 0;
+        //return 0;
     }
     else if (playerSelection === "rock" && computerSelection == "paper") {
         display.textContent = "You lose! Paper beats Rock";
         computerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return -1;
+        //return -1;
     }
     else if (playerSelection === "rock" && computerSelection == "scissors") {
         display.textContent = "You win! Rock beats Scissors";
         playerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return 1;
+        //return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "rock") {
         display.textContent = "You Win! Paper beats Rock";
         playerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return 1;
+        //return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "scissors") {
         display.textContent = "You lose! Scissors beats Paper";
         computerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return -1;
+        //return -1;
     }
     else if (playerSelection === "scissors" && computerSelection == "paper") {
         display.textContent = "You Win! Scissors beats Paper";
         playerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return 1;
+        //return 1;
     }
     else if (playerSelection === "scissors" && computerSelection == "rock") {
         display.textContent = "You lose! Rock beats Scissors";
         computerScore++;
         scoreDisplay.textContent = playerScore + " to " + computerScore;
-        return -1;
+        //return -1;
+    }
+    
+    if (playerScore === 5) {
+        scoreDisplay.textContent = "You win!";
+    }
+    else if (computerScore === 5) {
+        scoreDisplay.textContent = "The computer wins!";
     }
 }
 
