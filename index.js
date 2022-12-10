@@ -2,6 +2,7 @@
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const display = document.querySelector("#display");
 
 rock.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
@@ -32,31 +33,31 @@ function getComputerChoice () {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        console.log("Tie round!");
+        display.textContent = "Tie round!";
         return 0;
     }
     else if (playerSelection === "rock" && computerSelection == "paper") {
-        console.log("You lose! Paper beats Rock");
+        display.textContent = "You lose! Paper beats Rock";
         return -1;
     }
     else if (playerSelection === "rock" && computerSelection == "scissors") {
-        console.log("You win! Rock beats Scissors");
+        display.textContent = "You win! Rock beats Scissors";
         return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "rock") {
-        console.log("You Win! Paper beats Rock");
+        display.textContent = "You Win! Paper beats Rock";
         return 1;
     }
     else if (playerSelection === "paper" && computerSelection == "scissors") {
-        console.log("You lose! Scissors beats Paper");
+        display.textContent = "You lose! Scissors beats Paper";
         return -1;
     }
     else if (playerSelection === "scissors" && computerSelection == "paper") {
-        console.log("You Win! Scissors beats Paper");
+        display.textContent = "You Win! Scissors beats Paper";
         return 1;
     }
     else if (playerSelection === "scissors" && computerSelection == "rock") {
-        console.log("You lose! Rock beats Scissors");
+        display.textContent = "You lose! Rock beats Scissors";
         return -1;
     }
 }
