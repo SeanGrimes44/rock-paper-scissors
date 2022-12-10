@@ -7,18 +7,24 @@ const scoreDisplay = document.querySelector("#score-display");
 
 let playerScore = 0;
 let computerScore = 0;
-
+let playing = true;
 
 rock.addEventListener("click", () => {
-    playRound("rock", getComputerChoice());
+    if (playing) {
+        playRound("rock", getComputerChoice());
+    }
 });
 
 paper.addEventListener("click", () => {
-    playRound("paper", getComputerChoice());
+    if (playing) {
+        playRound("paper", getComputerChoice());
+    }
 });
 
 scissors.addEventListener("click", () => {
-    playRound("scissors", getComputerChoice());
+    if (playing) {
+        playRound("scissors", getComputerChoice());    
+    }
 });
 
 
@@ -80,9 +86,11 @@ function playRound(playerSelection, computerSelection) {
     
     if (playerScore === 5) {
         scoreDisplay.textContent = "You win!";
+        playing = false;
     }
     else if (computerScore === 5) {
         scoreDisplay.textContent = "The computer wins!";
+        playing = false;
     }
 }
 
